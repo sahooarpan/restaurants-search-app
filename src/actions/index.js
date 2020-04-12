@@ -1,4 +1,4 @@
-import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING } from './types';
+import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING,FETCH_GEOLOCATION } from './types';
 import axios from '../api/axiosconfig';
 
 export const serachLocation=text=>dispatch=>{
@@ -7,6 +7,10 @@ export const serachLocation=text=>dispatch=>{
         payload:text
     })
 };
+
+
+
+
 
 export const fetchRestaurants=text=> async dispatch=>{
     let { data } = await axios.get(`/locations?query=${text}`);
@@ -20,6 +24,22 @@ export const fetchRestaurants=text=> async dispatch=>{
     
     
 };
+
+export const fetchRestaurantsFromCurrentLocation=(latitude,longitude)=> async dispatch=>{
+    let { data } = await axios.get(`/geocode?lat=${latitude}&lon=${longitude}`);
+    let { entity_type,entity_id  } = data.location;
+    console.log(entity_type,entity_id);
+    axios.get(`/location_details?entity_id=${entity_id}&entity_type=${entity_type}`).then(res=>{
+    dispatch({
+            type:FETCH_RESTAURANTS,
+            payload:res.data.best_rated_restaurant
+        })
+    })
+    
+    
+};
+
+
 
 export const setLoading =()=>{
     return{
