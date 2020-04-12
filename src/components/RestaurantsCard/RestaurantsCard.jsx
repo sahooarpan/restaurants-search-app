@@ -4,7 +4,7 @@ import React from 'react';
      
      
     return (
-    <div className="col-xs-12 col-md-3 mb-2">
+    <div className="col-xs-12 col-md-4 mb-2">
     <div class="card">
   <img class="card-img-top img-responsive" src={imgUrl} alt="Card image cap"/>
   <div class="card-body">
