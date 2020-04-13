@@ -3,9 +3,13 @@ import { connect } from 'react-redux'
 import RestaurantsCard from '../RestaurantsCard/RestaurantsCard'
 
 class RestaurantsContainer extends React.Component{
+    state={
+        city:''
+    }
     render(){
 
-     const {restaurants}=this.props; 
+     const {restaurants}=this.props;
+     
      console.log(restaurants,"rrs");
 
     let content=restaurants.length>0?restaurants.map((restaurant,index)=>(
@@ -20,7 +24,9 @@ class RestaurantsContainer extends React.Component{
     return(
         
         <div className="container">
+        
         <div className="row">
+        
         {content}    
         </div>    
 

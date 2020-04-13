@@ -1,0 +1,38 @@
+body {
+    font-family: "Alfa Slab One", cursive;
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+  }
+  
+  .jumbotron{
+    
+    width: 100%;
+    margin-left: 0px;
+  }
+  .form-inline .form-control{
+    width: 65%;
+  }
+  .fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+  }
+  .fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+  }
+  /* #restaurants{
+    width: 350px;
+  }
+  .btn{
+    margin-top: -2px;
+  }  */

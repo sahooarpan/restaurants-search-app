@@ -1,4 +1,4 @@
-import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING,FETCH_GEOLOCATION } from './types';
+import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING } from './types';
 import axios from '../api/axiosconfig';
 
 export const serachLocation=text=>dispatch=>{

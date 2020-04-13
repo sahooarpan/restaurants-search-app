@@ -1,17 +1,20 @@
 import React from 'react';
+import './RestaurantCard.css';
 
- const RestaurantsCard=({name,cuisines,timings,imgUrl}) =>{
+ const RestaurantsCard=({name,cuisines,timings,imgUrl,city}) =>{
      
      
     return (
     <div className="col-xs-12 col-md-4 mb-2">
-    <div class="card">
-  <img class="card-img-top img-responsive" src={imgUrl} alt="Card image cap"/>
-  <div class="card-body">
-    <h5 class="card-title">{name}</h5>
-    <p class="card-text">Cusines:  {cuisines}</p>
-    <p class="card-text">Timing:  {timings}</p>
-    <a href="#" class="btn btn-success btn-block">Order Now</a>
+        
+    <div className="card">
+        
+  <img className="card-img-top img-responsive" src={imgUrl} alt="Card image cap"/>
+  <div className="card-body">
+    <h5 className="card-title">{name}</h5>
+    <p className="card-text">Cusines:  {cuisines}</p>
+    <p className="card-text">Timing:  {timings}</p>
+    <a className="#" className="btn btn-success btn-block">Order Now</a>
   </div>
 
             
