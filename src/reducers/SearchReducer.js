@@ -1,8 +1,9 @@
-import { FETCH_RESTAURANTS,LOADING,SEARCH_LOCATION } from '../actions/types';
+import { FETCH_RESTAURANTS,LOADING,SEARCH_LOCATION,FETCH_RESTAURANT } from '../actions/types';
 
 const INITIAL_STATE={
     text:'',
     restaurants:[],
+    restaurant:[],
     loading:false,
     coords:{
         long:0,
@@ -25,6 +26,15 @@ export default function(state = INITIAL_STATE, action) {
           restaurants: action.payload,
           loading: false
         };
+
+      case FETCH_RESTAURANT:
+        return{
+          ...state,
+          restaurant:action.payload,
+          loading:false
+        }  
+
+
      
       case LOADING:
         return {
@@ -32,14 +42,7 @@ export default function(state = INITIAL_STATE, action) {
           loading: true
         };
 
-    //    case FETCH_GEOLOCATION:
-    //        return{
-    //            ...state,
-    //            coords:action.payload,
-    //            loading:false
-
-    //        }
-
+    
        
       default:
         return state;

@@ -19,8 +19,10 @@
     .card-img-top {
         height: 11vw;
     }
+    
   }
-  /* Extra large devices (large desktops, 1200px and up) */
+  /* Extra large devi
+  ces (large desktops, 1200px and up) */
   @media (min-width: 992px) {
     .card-img-top {
         height: 20vw;

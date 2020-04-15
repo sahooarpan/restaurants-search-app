@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import './Landing.css'
 import Form from '../form/Form'
 import { connect } from 'react-redux'
@@ -33,7 +32,7 @@ class Landing  extends Component
     
     return (
       <div>
-        <Header />
+        
         <Form/>
         {loading?<Spinner/>:<RestaurantsContainer/>}
          
