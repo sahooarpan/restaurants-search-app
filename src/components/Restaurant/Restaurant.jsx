@@ -32,7 +32,7 @@ class Restaurant extends Component {
               
               <div className="col-xs-12 my-4 col-md-4">
                 
-                  <img className="img-fluid img-thumbnail" src={restaurant && restaurant.photos && restaurant.photos[7].photo.url}/>
+                  <img className="img-fluid img-thumbnail" src={restaurant && restaurant.photos && restaurant.photos[0].photo.url}/>
                     
               </div>
               <div className="col-xs-12  my-4 col-md-8">
