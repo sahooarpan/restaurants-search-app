@@ -1,46 +1,73 @@
 import React, { Component } from 'react'
 import './Restaurant.css'
 import { connect } from 'react-redux';
-import { fetchCurrentRestaurant } from '../../actions/index' 
+import { fetchCurrentRestaurant,setLoading } from '../../actions/index' ;
+import Spinner from '../Spinner/Spinner'
 
 class Restaurant extends Component {
   
-  componentWillMount(){
+  componentDidMount(){
     
     this.props.fetchCurrentRestaurant(this.props.match.params.id);
+    this.props.setLoading();
     
   }
-    render() {
-      const { restaurant } =this.props;
-      console.log("rsttstst",restaurant.address
-      );
-
-        return (
-          
-          <div class="jumbotron text-center hoverable p-4">
 
   
-  <div class="row">
-
+     render() {
+      const { restaurant,loading } =this.props;
+    console.log('ldng',loading)
     
-    <div class="col-md-4 offset-md-1 mx-3 my-3">
-        <h1>{restaurant.location.address}</h1>
+      
+      
+      
+        let restaurantContent= (
+          
+          
+          <div className="container-fluid">
+          
             
-      
-      
+            <div className="row">
+          
+              
+              <div className="col-xs-12 my-4 col-md-4">
+                
+                  <img className="img-fluid img-thumbnail" src={restaurant && restaurant.photos && restaurant.photos[7].photo.url}/>
+                    
+              </div>
+              <div className="col-xs-12  my-4 col-md-8">
+              <h4>{restaurant.name}</h4>
+              <p>{restaurant.cuisines}</p>
+              <p>{ restaurant.location && restaurant.location.locality}</p>
+              <div className="box">
+               <div className="child-1"> 
+              {restaurant.user_rating  && restaurant.user_rating.aggregate_rating}<i class="fas fa-star"></i>
+              </div> 
+              
+              <div className="votes">
+              {restaurant.user_rating  && restaurant.user_rating.votes} reviews
+              </div>
+              </div>
+              </div>
+              <div>
+                </div> 
+              </div>
+              </div>      
+          
+                  );
+        
+                  let content = loading ? <Spinner /> : restaurantContent;
+                  return <div>{content}</div>;
+                
+            }
+
+      } 
       
 
-    </div> 
-    </div>
-    </div>      
-
-        )
-    }
-}
 
 const mapStateToProps = state=>({
   restaurant:state.restaurants.restaurant,
   loading:state.restaurants.loading
 })
 
-export default connect(mapStateToProps,{fetchCurrentRestaurant})(Restaurant);
+export default connect(mapStateToProps,{fetchCurrentRestaurant,setLoading})(Restaurant);

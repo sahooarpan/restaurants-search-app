@@ -30,7 +30,7 @@ export const fetchRestaurants=text=> async dispatch=>{
 export const fetchCurrentRestaurant=id=> async dispatch=>{
      
     let { data } = await axios.get(`/restaurant?res_id=${id}`);
-   let { location,user_rating,photos,all_reviews,cuisines,timings,name } =data;
+   
     dispatch({
         type:FETCH_RESTAURANT,
         payload:data

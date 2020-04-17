@@ -3,7 +3,7 @@ import { FETCH_RESTAURANTS,LOADING,SEARCH_LOCATION,FETCH_RESTAURANT } from '../a
 const INITIAL_STATE={
     text:'',
     restaurants:[],
-    restaurant:[],
+    restaurant:{},
     loading:false,
     coords:{
         long:0,
@@ -32,6 +32,7 @@ export default function(state = INITIAL_STATE, action) {
           ...state,
           restaurant:action.payload,
           loading:false
+          
         }  
 
 
