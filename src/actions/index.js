@@ -1,4 +1,4 @@
-import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING,FETCH_RESTAURANT } from './types';
+import { SEARCH_LOCATION,FETCH_RESTAURANTS,LOADING,FETCH_RESTAURANT,FETCH_REVIEWS } from './types';
 import axios from '../api/axiosconfig';
 
 export const serachLocation=text=>dispatch=>{
@@ -52,6 +52,13 @@ export const fetchRestaurantsFromCurrentLocation=(latitude,longitude)=> async di
     
 };
 
+export const fetchRestaurantReviews = (id)=>async dispatch=>{
+    let {data} = await axios.get(`/reviews?res_id=${id}&start=0&count=10`);
+    dispatch({
+        type:FETCH_REVIEWS,
+        payload:data
+    })
+}
 
 
 

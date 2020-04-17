@@ -12,7 +12,7 @@ class App extends Component {
         <Header/>
         <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/restaurant/:id" component={Restaurant}   />
+        <Route exact path="/restaurant/:id" render={(props)=><Restaurant {...props} />}   />
         </Switch>
       </div>
     )

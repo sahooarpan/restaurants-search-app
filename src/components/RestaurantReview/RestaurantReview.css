@@ -1,0 +1,38 @@
+img {
+    height: 93px;
+    
+}
+
+.box{
+    border-color: black;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+.child-1{
+    background-color: #5BA829;
+    margin:1px;
+    width:128px;
+    padding-left: 38px;
+    color: white;
+    border-radius: 25px;
+    margin-bottom: 0px;
+ 
+    margin-right: 10px;
+    
+    
+
+}
+.review-box{
+    
+        background-color: #5BA829;
+        margin: 11px;
+        width: 128px;
+        padding: 11px;
+        color: white;
+        border-radius: 25px;
+        margin-bottom: 0px;
+        margin-right: 10px;
+    
+}

@@ -3,20 +3,23 @@ import './Restaurant.css'
 import { connect } from 'react-redux';
 import { fetchCurrentRestaurant,setLoading } from '../../actions/index' ;
 import Spinner from '../Spinner/Spinner'
+import RestaurantReiews from '../RestaurantReiews/RestaurantReiews'
 
 class Restaurant extends Component {
   
   componentDidMount(){
     
     this.props.fetchCurrentRestaurant(this.props.match.params.id);
-    this.props.setLoading();
+    
     
   }
 
   
      render() {
-      const { restaurant,loading } =this.props;
-    console.log('ldng',loading)
+      const { restaurant } =this.props;
+      if(restaurant.length===0){
+        return <Spinner/>;
+      }
     
       
       
@@ -30,22 +33,24 @@ class Restaurant extends Component {
             <div className="row">
           
               
-              <div className="col-xs-12 my-4 col-md-4">
+              <div className="image-container col-xs-6 my-2 col-md-6">
                 
-                  <img className="img-fluid img-thumbnail" src={restaurant && restaurant.photos && restaurant.photos[0].photo.url}/>
+                  <img className="img-fluid img-thumbnail" src={restaurant.photos[0].photo.url}/>
                     
               </div>
-              <div className="col-xs-12  my-4 col-md-8">
-              <h4>{restaurant.name}</h4>
+              <div className="col-xs-6  my-2 my-auto mr-auto content col-md-4">
+              <h4 className="text-secondary mb-3">{restaurant.name}</h4>
               <p>{restaurant.cuisines}</p>
-              <p>{ restaurant.location && restaurant.location.locality}</p>
+        <p>{restaurant.location.address}</p>
+              <p>{  restaurant.location.locality}</p>
+              <p>{  restaurant.location.city}</p>
               <div className="box">
                <div className="child-1"> 
-              {restaurant.user_rating  && restaurant.user_rating.aggregate_rating}<i class="fas fa-star"></i>
+              { restaurant.user_rating.aggregate_rating}<i class="fas fa-star"></i>
               </div> 
               
               <div className="votes">
-              {restaurant.user_rating  && restaurant.user_rating.votes} reviews
+              {restaurant.user_rating.votes} reviews
               </div>
               </div>
               </div>
@@ -56,8 +61,10 @@ class Restaurant extends Component {
           
                   );
         
-                  let content = loading ? <Spinner /> : restaurantContent;
-                  return <div>{content}</div>;
+                  
+                  return <div>{restaurantContent}
+                  <RestaurantReiews id={this.props.match.params.id} />
+                  </div>;
                 
             }
 

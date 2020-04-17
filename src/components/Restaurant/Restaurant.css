@@ -33,4 +33,40 @@ fa, .fas {
     margin-top: 7px;
     margin-left: 13px;
 }
+.img-thumbnail{
+    height:300px;
+    width: 300px;
+    margin-top:50px;
+}
+.content{
+    
+    margin:0px
+}
 
+@media only screen and (max-width: 766px) {
+    .container-fluid{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .content{
+    padding: 20px;
+    margin: 20px;
+    }
+    .img-thumbnail{
+        height:300px;
+        width: 300px;
+    }
+
+}
+@media only screen and (min-width:1090px){
+    .image-container{
+        margin-right: 0px;
+    }
+    .img-thumbnail{
+        width:620px;
+    }
+    .content{
+        margin-left: 1px;
+    }
+}
