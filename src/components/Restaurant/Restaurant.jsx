@@ -39,17 +39,17 @@ class Restaurant extends Component {
                     
               </div>
               <div className="col-xs-6  my-2 my-auto mr-auto content col-md-4">
-              <h4 className="text-secondary mb-3">{restaurant.name}</h4>
-              <p>{restaurant.cuisines}</p>
-        <p>{restaurant.location.address}</p>
-              <p>{  restaurant.location.locality}</p>
+              <h4 className="text-danger mb-3">{restaurant.name}</h4>
+              <p className="text-info"> {restaurant.cuisines}</p>
+        <p className="text-dark">{restaurant.location.address}</p>
+              <p className="text-lead">{  restaurant.location.locality}</p>
               <p>{  restaurant.location.city}</p>
               <div className="box">
                <div className="child-1"> 
               { restaurant.user_rating.aggregate_rating}<i class="fas fa-star"></i>
               </div> 
               
-              <div className="votes">
+              <div className="votes text-primary">
               {restaurant.user_rating.votes} reviews
               </div>
               </div>

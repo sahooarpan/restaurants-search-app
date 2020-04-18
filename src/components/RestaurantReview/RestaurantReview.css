@@ -2,6 +2,9 @@
     height: 90px;
     width: 90px;
 }
+.row{
+    display: flex;
+}
 
 .box{
     border-color: black;
@@ -35,4 +38,9 @@
         margin-bottom: 0px;
         margin-right: 10px;
     
+}
+@media only screen and (max-width: 767px){
+.review {
+    margin: -14px;
+}
 }
