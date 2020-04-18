@@ -6,7 +6,7 @@ export default function RestaurantReview({reviews}) {
         return reviews.map(review=>{
 
         return <div className=" mt-7 row">
-            <div className="col-xs-4 col-md-4 mb-3 offset-md-1 mb-0 review">
+            <div className="col-xs-4 col-md-4 mb-3 offset-md-1 mb-0 review user">
                 <img className="rounded review-img" src={review.review.user.profile_image}/>
         <h6 className="text-dark mt-1">{review.review.user.name}</h6>
         <h6 className="text-muted">{review.review.review_time_friendly}</h6>
